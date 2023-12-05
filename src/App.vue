@@ -9,6 +9,7 @@
     <el-button type="warning">Warning</el-button>
     <el-button type="danger">Danger</el-button>
   </el-row>
+  <router-view></router-view>
 </template>
 <script setup lang="ts">
 import { ref } from 'vue';
