@@ -1,3 +1,4 @@
+commit提交命名规范
 feat - 新功能 feature
 fix - 修复 bug
 docs - 文档注释
