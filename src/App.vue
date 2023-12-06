@@ -1,4 +1,3 @@
-
 <template>
   <div>{{ msg }}</div>
   <el-row class="mb-4">
@@ -14,9 +13,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-const msg = ref('hello')
+const msg = ref('hello');
 </script>
 
-
-<style scoped>
-</style>
+<style scoped></style>

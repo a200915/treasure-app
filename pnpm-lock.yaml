@@ -5,6 +5,7 @@ specifiers:
   '@vitejs/plugin-vue': ^4.5.0
   element-plus: ^2.4.3
   pinia: ^2.1.7
+  prettier: ^3.1.0
   typescript: ^5.2.2
   unplugin-auto-import: ^0.17.2
   unplugin-vue-components: ^0.26.0
@@ -22,6 +23,7 @@ dependencies:
 devDependencies:
   '@types/node': registry.npmmirror.com/@types/node/20.10.3
   '@vitejs/plugin-vue': registry.npmmirror.com/@vitejs/plugin-vue/4.5.1_vite@5.0.5+vue@3.3.10
+  prettier: registry.npmmirror.com/prettier/3.1.0
   typescript: registry.npmmirror.com/typescript/5.3.2
   unplugin-auto-import: registry.npmmirror.com/unplugin-auto-import/0.17.2
   unplugin-vue-components: registry.npmmirror.com/unplugin-vue-components/0.26.0_vue@3.3.10
@@ -1266,6 +1268,14 @@ packages:
       nanoid: registry.npmmirror.com/nanoid/3.3.7
       picocolors: registry.npmmirror.com/picocolors/1.0.0
       source-map-js: registry.npmmirror.com/source-map-js/1.0.2
+
+  registry.npmmirror.com/prettier/3.1.0:
+    resolution: {integrity: sha512-TQLvXjq5IAibjh8EpBIkNKxO749UEWABoiIZehEPiY4GNpVdhaFKqSTu+QrlU6D2dPAfubRmtJTi4K4YkQ5eXw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/prettier/-/prettier-3.1.0.tgz}
+    name: prettier
+    version: 3.1.0
+    engines: {node: '>=14'}
+    hasBin: true
+    dev: true
 
   registry.npmmirror.com/queue-microtask/1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/queue-microtask/-/queue-microtask-1.2.3.tgz}
