@@ -23,7 +23,7 @@
         <el-input
           v-model="inputValue"
           class="w-50 m-3 input"
-          placeholder="请输入搜索内容"
+          placeholder="请输入搜索内容!"
           :suffix-icon="Search"
           clearable
         /></div
@@ -51,11 +51,11 @@
 
 <script lang="ts" setup>
 import { ref, reactive, shallowRef } from "vue";
-import frontView from "./novelView/frontView.vue";
-import novelsView from "./novelView/novelsView.vue";
-import picturesView from "./novelView/picturesView.vue";
-import musicView from "./novelView/musicView.vue";
-import videoView from "./novelView/videoView.vue";
+import frontView from "./mainView/frontView.vue";
+import novelsView from "./mainView/novelsView.vue";
+import picturesView from "./mainView/picturesView.vue";
+import musicView from "./mainView/musicView.vue";
+import videoView from "./mainView/videoView.vue";
 import { Search, ChatDotRound } from "@element-plus/icons-vue";
 const tabList = reactive([
   { tabComponent: shallowRef(frontView), tabName: "首页", tabIndex: 1 },
