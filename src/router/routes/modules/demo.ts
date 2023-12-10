@@ -3,6 +3,7 @@ const demos: RouteRecordRaw[] = [
   {
     path: "/demo",
     name: "demo",
+    alias: "/",
     component: () => import("/@/views/demo.vue"),
   },
   {
