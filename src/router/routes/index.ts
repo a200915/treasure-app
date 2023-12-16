@@ -11,7 +11,7 @@ Object.keys(modules).forEach((key) => {
 
 routes.push({ 
     path: '/:pathMatch(.*)*', name: 'NotFound', 
-    component:  () => import('/@/views/notFound.vue')
+    component:  () => import('@/views/notFound.vue')
 })
 
 export { routes }

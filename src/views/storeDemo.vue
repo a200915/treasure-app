@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useDemoStore } from '/@/store/modules/demo';
+import { useDemoStore } from '@/store/modules/demo';
 const store = useDemoStore()
 
 const changeName = () => {

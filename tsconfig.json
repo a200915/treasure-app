@@ -21,8 +21,8 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "/@/*": ["src/*"],
-      "/#/*": ["types/*"]
+      "@/*": ["src/*"],
+      "#/*": ["types/*"]
     },
     "types": ["element-plus/global"]
   },
