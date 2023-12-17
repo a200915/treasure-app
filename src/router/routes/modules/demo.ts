@@ -4,12 +4,12 @@ const demos: RouteRecordRaw[] = [
     path: "/demo",
     name: "demo",
     alias: "/",
-    component: () => import("/@/views/demo.vue"),
+    component: () => import("@/views/demo.vue"),
   },
   {
     path: "/storeDemo",
     name: "storeDemo",
-    component: () => import("/@/views/storeDemo.vue"),
+    component: () => import("@/views/storeDemo.vue"),
   },
 ];
 export default demos;
