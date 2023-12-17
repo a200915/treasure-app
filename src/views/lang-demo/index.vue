@@ -4,11 +4,15 @@
 </template>
 <script setup lang="ts">
 import { useI18n } from "vue-i18n";
-const { t, locale } = useI18n();
+import { useLocaleStore } from "@/store/modules/locales";
+const localeStore = useLocaleStore();
+const locale = localeStore.locale;
+
+const { t } = useI18n();
 
 const changeLang = () => {
-  console.log(t("langDemo.title"), "---");
-  locale.value = ["zh", "en"][Math.floor(Math.random() * 2)];
+  console.log(t("langDemo.title"), "---", locale);
+  localeStore.changLang("zh");
 };
 </script>
 <style scoped lang="less"></style>
