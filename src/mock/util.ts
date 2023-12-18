@@ -17,3 +17,8 @@ export const resError = (data: any, message:string, code=500) => {
         success: false
     }
 }
+
+// 获取随机字符串
+export const getToken = () => {
+    return Math.random().toString(32).substr(2)
+}

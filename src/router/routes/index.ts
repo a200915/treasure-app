@@ -9,9 +9,21 @@ Object.keys(modules).forEach((key) => {
    routes.push(...list)
 });
 
-routes.push({ 
-    path: '/:pathMatch(.*)*', name: 'NotFound', 
-    component:  () => import('@/views/notFound.vue')
-})
+const baseRoute:RouteRecordRaw[] = [
+    {
+        path:'/',
+        redirect:'/demo'
+    },
+    { 
+        path: '/NoPermission', name: 'NoPermission', 
+        component:  () => import('@/views/common-page/noPermission.vue')
+    },
+    { 
+        path: '/:pathMatch(.*)*', name: 'NotFound', 
+        component:  () => import('@/views/common-page/notFound.vue')
+    }
+]
+
+routes.push(...baseRoute)
 
 export { routes }

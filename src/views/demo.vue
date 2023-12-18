@@ -1,6 +1,5 @@
 <template>
     <div>demo</div>
-    <img src="https://gitee.com/hglaaa/treasure-imgs/raw/master/01.png" alt="">
     <lang-demo />
 </template>
 

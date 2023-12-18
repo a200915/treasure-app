@@ -3,13 +3,17 @@ const demos: RouteRecordRaw[] = [
   {
     path: "/demo",
     name: "demo",
-    alias: "/",
     component: () => import("@/views/demo.vue"),
   },
   {
-    path: "/storeDemo",
-    name: "storeDemo",
-    component: () => import("@/views/storeDemo.vue"),
-  },
+    path: "/auth",
+    name: "auth",
+    component: () => import("@/views/auth.vue"),
+    meta: {
+      title: '权限测试',
+      // roles:['admin1'],
+      roles:['admin'],
+    }
+  }
 ];
 export default demos;

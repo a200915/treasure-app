@@ -27,7 +27,9 @@ export default defineConfig(({command, mode}) => {
       viteMockServe({
         mockPath: './src/mock',
         localEnabled: command === 'serve',
-        prodEnabled: false
+        supportTs: true,
+        prodEnabled: false,
+        logger: false
       })
     ],
     // 共享选项配置

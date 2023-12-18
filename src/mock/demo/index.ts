@@ -5,7 +5,7 @@ export default [
         url: '/mock/demo',
         method: 'post',
         timeout: '320',
-        response:( { body }: {body: any} ) => {
+        response:( { body = {} }) => {
             console.log(body);
             return resSuccess({
                 str: '测试',

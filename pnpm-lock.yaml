@@ -8,6 +8,7 @@ specifiers:
   axios: ^1.6.2
   element-plus: ^2.4.3
   less: ^4.2.0
+  less-loader: ^11.1.3
   mockjs: ^1.1.0
   pinia: ^2.1.7
   prettier: ^3.1.0
@@ -17,6 +18,7 @@ specifiers:
   vite: ^5.0.0
   vite-plugin-mock: 2.9.6
   vue: ^3.3.8
+  vue-i18n: ^9.8.0
   vue-router: '4'
   vue-tsc: ^1.8.22
 
@@ -26,9 +28,11 @@ dependencies:
   axios: registry.npmmirror.com/axios/1.6.2
   element-plus: registry.npmmirror.com/element-plus/2.4.3_vue@3.3.10
   less: registry.npmmirror.com/less/4.2.0
+  less-loader: registry.npmmirror.com/less-loader/11.1.3_less@4.2.0
   mockjs: registry.npmmirror.com/mockjs/1.1.0
   pinia: registry.npmmirror.com/pinia/2.1.7_ehq223lgdbhvkmdxn5txvsxllq
   vue: registry.npmmirror.com/vue/3.3.10_typescript@5.3.2
+  vue-i18n: registry.npmmirror.com/vue-i18n/9.8.0_vue@3.3.10
   vue-router: registry.npmmirror.com/vue-router/4.2.5_vue@3.3.10
 
 devDependencies:
@@ -362,6 +366,33 @@ packages:
     resolution: {integrity: sha512-OfX7E2oUDYxtBvsuS4e/jSn4Q9Qb6DzgeYtsAdkPZ47znpoNsMgZw0+tVijiv3uGNR6dgNlty6r9rzIzHjtd/A==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@floating-ui/utils/-/utils-0.1.6.tgz}
     name: '@floating-ui/utils'
     version: 0.1.6
+    dev: false
+
+  registry.npmmirror.com/@intlify/core-base/9.8.0:
+    resolution: {integrity: sha512-UxaSZVZ1DwqC/CltUZrWZNaWNhfmKtfyV4BJSt/Zt4Or/fZs1iFj0B+OekYk1+MRHfIOe3+x00uXGQI4PbO/9g==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@intlify/core-base/-/core-base-9.8.0.tgz}
+    name: '@intlify/core-base'
+    version: 9.8.0
+    engines: {node: '>= 16'}
+    dependencies:
+      '@intlify/message-compiler': registry.npmmirror.com/@intlify/message-compiler/9.8.0
+      '@intlify/shared': registry.npmmirror.com/@intlify/shared/9.8.0
+    dev: false
+
+  registry.npmmirror.com/@intlify/message-compiler/9.8.0:
+    resolution: {integrity: sha512-McnYWhcoYmDJvssVu6QGR0shqlkJuL1HHdi5lK7fNqvQqRYaQ4lSLjYmZxwc8tRNMdIe9/KUKfyPxU9M6yCtNQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@intlify/message-compiler/-/message-compiler-9.8.0.tgz}
+    name: '@intlify/message-compiler'
+    version: 9.8.0
+    engines: {node: '>= 16'}
+    dependencies:
+      '@intlify/shared': registry.npmmirror.com/@intlify/shared/9.8.0
+      source-map-js: registry.npmmirror.com/source-map-js/1.0.2
+    dev: false
+
+  registry.npmmirror.com/@intlify/shared/9.8.0:
+    resolution: {integrity: sha512-TmgR0RCLjzrSo+W3wT0ALf9851iFMlVI9EYNGeWvZFUQTAJx0bvfsMlPdgVtV1tDNRiAfhkFsMKu6jtUY1ZLKQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@intlify/shared/-/shared-9.8.0.tgz}
+    name: '@intlify/shared'
+    version: 9.8.0
+    engines: {node: '>= 16'}
     dev: false
 
   registry.npmmirror.com/@jridgewell/sourcemap-codec/1.4.15:
@@ -1372,6 +1403,19 @@ packages:
     version: 3.2.0
     dev: true
 
+  registry.npmmirror.com/less-loader/11.1.3_less@4.2.0:
+    resolution: {integrity: sha512-A5b7O8dH9xpxvkosNrP0dFp2i/dISOJa9WwGF3WJflfqIERE2ybxh1BFDj5CovC2+jCE4M354mk90hN6ziXlVw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/less-loader/-/less-loader-11.1.3.tgz}
+    id: registry.npmmirror.com/less-loader/11.1.3
+    name: less-loader
+    version: 11.1.3
+    engines: {node: '>= 14.15.0'}
+    peerDependencies:
+      less: ^3.5.0 || ^4.0.0
+      webpack: ^5.0.0
+    dependencies:
+      less: registry.npmmirror.com/less/4.2.0
+    dev: false
+
   registry.npmmirror.com/less/4.2.0:
     resolution: {integrity: sha512-P3b3HJDBtSzsXUl0im2L7gTO5Ubg8mEN6G8qoTS77iXxXX4Hvu4Qj540PZDvQ8V6DmX6iXo98k7Md0Cm1PrLaA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/less/-/less-4.2.0.tgz}
     name: less
@@ -2081,6 +2125,21 @@ packages:
       '@vue/composition-api':
         optional: true
     dependencies:
+      vue: registry.npmmirror.com/vue/3.3.10_typescript@5.3.2
+    dev: false
+
+  registry.npmmirror.com/vue-i18n/9.8.0_vue@3.3.10:
+    resolution: {integrity: sha512-Izho+6PYjejsTq2mzjcRdBZ5VLRQoSuuexvR8029h5CpN03FYqiqBrShMyf2I1DKkN6kw/xmujcbvC+4QybpsQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vue-i18n/-/vue-i18n-9.8.0.tgz}
+    id: registry.npmmirror.com/vue-i18n/9.8.0
+    name: vue-i18n
+    version: 9.8.0
+    engines: {node: '>= 16'}
+    peerDependencies:
+      vue: ^3.0.0
+    dependencies:
+      '@intlify/core-base': registry.npmmirror.com/@intlify/core-base/9.8.0
+      '@intlify/shared': registry.npmmirror.com/@intlify/shared/9.8.0
+      '@vue/devtools-api': registry.npmmirror.com/@vue/devtools-api/6.5.1
       vue: registry.npmmirror.com/vue/3.3.10_typescript@5.3.2
     dev: false
 

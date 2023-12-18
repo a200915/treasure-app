@@ -11,4 +11,5 @@ const changeLang = () => {
   locale.value = ["zh", "en"][Math.floor(Math.random() * 2)];
 };
 </script>
-<style scoped lang="less"></style>
+<style scoped lang="less">
+</style>
