@@ -1,9 +1,8 @@
 import { useUserStoreWithOut } from "@/store/modules/user"
 import { router } from "../index"
-import { toRefs, toValue } from "vue"
-
 // 免登录白名单
 const whiteList = ['/login']
+
 function diffRole(routeRole:string[], curRole:string[]) {
     return routeRole.some(item => {
         return curRole.includes(item)
