@@ -4,10 +4,10 @@ import en from "./en";
 
 let currentLanguage = navigator.language.replace(/-(\S*)/, "");
 
-// 如果本地缓存记录了语言环境，则使用本地缓存 TODO
-let lsLocale = localStorage.getItem("locale") || "";
+// 如果本地缓存记录了语言环境，则使用本地缓存
+let lsLocale = localStorage.getItem("treasureLocale") || "";
 if (lsLocale) {
-  currentLanguage = JSON.parse(lsLocale)?.curLocale;
+  currentLanguage = lsLocale;
 }
 
 // 国际化语言缩写
