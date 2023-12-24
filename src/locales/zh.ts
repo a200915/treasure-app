@@ -1,4 +1,8 @@
-import langDemo from "../views/lang-demo/i18n/zh";
+import setupMenu from "../common/components/setup-menu/i18n/zh";
+import novelPage from "../views/novel-page/i18n/zh";
+import musicPage from "../views/music-page/i18n/zh";
 export default {
-  ...langDemo,
+  ...setupMenu,
+  ...novelPage,
+  ...musicPage,
 };

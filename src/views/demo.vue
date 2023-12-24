@@ -1,11 +1,5 @@
-<template>
-    <div>demo</div>
-    <lang-demo />
-</template>
+<template></template>
 
-<script lang="ts" setup>
-import langDemo from "./lang-demo/index.vue";
-
-</script>
+<script lang="ts" setup></script>
 
 <style scoped></style>
