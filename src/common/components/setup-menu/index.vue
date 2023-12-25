@@ -31,8 +31,12 @@
         :ellipsis="false"
         :router="true"
       >
-        <el-menu-item index="6">{{ $t("setupMenu.mine") }} </el-menu-item>
-        <el-menu-item index="7">{{ $t("setupMenu.message") }} </el-menu-item>
+        <el-menu-item index="6" class="avatar">
+          <el-avatar :src="avatarSrc" />
+        </el-menu-item>
+        <el-menu-item index="7"
+          >{{ $t("setupMenu.message") }}<el-icon><ChatDotRound /></el-icon>
+        </el-menu-item>
         <el-menu-item>
           <el-switch
             v-model="localeFlag"
@@ -43,13 +47,16 @@
             @change="changeLang"
           />
         </el-menu-item>
-        <el-menu-item>上传 </el-menu-item>
+        <el-menu-item
+          >上传<el-icon><UploadFilled /></el-icon>
+        </el-menu-item>
       </el-menu>
     </div>
   </div>
 </template>
 <script setup lang="ts">
 import { computed, ref, defineProps, defineEmits } from "vue";
+import { ChatDotRound, UploadFilled } from "@element-plus/icons-vue";
 import { storeToRefs } from "pinia";
 import { useLocaleStore } from "@/store/modules/locales";
 const localeStore = useLocaleStore();
@@ -97,6 +104,11 @@ const colorChange = (color: string) => {
   style.setProperty("--bgd-color", color);
 };
 colorChange(props.bgdColor);
+
+// 获取头像路径
+const avatarSrc = ref(
+  "https://gitee.com/hglaaa/treasure-imgs/raw/master/login.jpeg"
+);
 </script>
 <style scoped lang="less">
 @bgd-menu: var(--bgd-color, #dedfe6);
@@ -152,6 +164,11 @@ colorChange(props.bgdColor);
   .right {
     .el-menu-right {
       background-color: @bgd-menu;
+      .avatar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
   }
 }
