@@ -76,7 +76,7 @@ const changeLang = (val: any) => {
 };
 // 菜单左侧ItemList
 // routerOpenFlag为true时，开启router菜单跳转，index为页面路由
-const props = defineProps(["leftItemList", "routerOpenFlag"]);
+const props = defineProps(["leftItemList", "routerOpenFlag", "bgdColor"]);
 
 // 非路由模式下点击显示tabBar内容
 const emit = defineEmits(["showTabBar"]);
@@ -90,9 +90,16 @@ const showTabBar = (item: any) => {
 const goHome = () => {
   router.push({ path: "/home" });
 };
+
+// 修改css背景值变量
+const colorChange = (color: string) => {
+  const style = document.getElementsByTagName("body")[0].style;
+  style.setProperty("--bgd-color", color);
+};
+colorChange(props.bgdColor);
 </script>
 <style scoped lang="less">
-@bgd-menu: #dedfe6;
+@bgd-menu: var(--bgd-color, #dedfe6);
 .setup-menu {
   display: flex;
   justify-content: space-between;

@@ -5,6 +5,7 @@
         <setup-menu
           :leftItemList="leftItemList"
           :routerOpenFlag="routerOpenFlag"
+          :bgdColor="bgdColor"
         />
       </el-header>
       <el-main>main </el-main>
@@ -15,6 +16,8 @@
 import SetupMenu from "@/common/components/setup-menu/index.vue";
 import { ref, reactive } from "vue";
 const routerOpenFlag = ref(true);
+const bgdColor = ref("#33e0bd");
+
 // 菜单左侧ItemList
 const leftItemList = reactive([
   {

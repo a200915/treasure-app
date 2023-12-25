@@ -5,6 +5,7 @@
         <setup-menu
           :leftItemList="leftItemList"
           :routerOpenFlag="routerOpenFlag"
+          :bgdColor="bgdColor"
           @showTabBar="showTabBarFn"
         />
       </el-header>
@@ -22,6 +23,7 @@ import Third from "./third.vue";
 import Fourth from "./fourth.vue";
 import Second from "./second.vue";
 const routerOpenFlag = ref(false);
+const bgdColor = ref("#2cc4e0");
 const componentId = shallowRef(First);
 // 菜单左侧ItemList
 const leftItemList = reactive([
