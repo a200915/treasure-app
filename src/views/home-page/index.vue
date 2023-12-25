@@ -21,33 +21,25 @@ const leftItemList = reactive([
     name: "小说",
     title: "setupMenu.novel",
     routerPath: "/novel",
-    hasIcon: {
-      hasFlag: false,
-    },
+    roleGroup: ["super_administrator", "admin", "super_user", "user"],
   },
   {
     name: "图片",
     title: "setupMenu.picture",
     routerPath: "/picture",
-    hasIcon: {
-      hasFlag: false,
-    },
+    roleGroup: ["super_administrator", "admin", "super_user", "user"],
   },
   {
     name: "音乐",
     title: "setupMenu.music",
     routerPath: "/music",
-    hasIcon: {
-      hasFlag: false,
-    },
+    roleGroup: ["super_administrator", "admin", "super_user", "user"],
   },
   {
     name: "视频",
     title: "setupMenu.video",
     routerPath: "/video",
-    hasIcon: {
-      hasFlag: false,
-    },
+    roleGroup: ["super_administrator", "admin", "super_user", "user"],
   },
 ]);
 </script>

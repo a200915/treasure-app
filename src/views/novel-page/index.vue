@@ -28,38 +28,30 @@ const leftItemList = reactive([
   {
     name: "推荐",
     title: "推荐",
-    routerPath: shallowRef(First),
-    hasIcon: {
-      hasFlag: false,
-    },
+    componentId: shallowRef(First),
+    roleGroup: ["super_administrator", "admin", "super_user", "user"],
   },
   {
     name: "分类",
     title: "分类",
-    routerPath: shallowRef(Second),
-    hasIcon: {
-      hasFlag: false,
-    },
+    componentId: shallowRef(Second),
+    roleGroup: ["super_administrator", "admin", "super_user", "user"],
   },
   {
     name: "书架",
     title: "书架",
-    routerPath: shallowRef(Third),
-    hasIcon: {
-      hasFlag: false,
-    },
+    componentId: shallowRef(Third),
+    roleGroup: ["super_administrator", "admin", "super_user", "user"],
   },
   {
     name: "收藏",
     title: "收藏",
-    routerPath: shallowRef(Fourth),
-    hasIcon: {
-      hasFlag: false,
-    },
+    componentId: shallowRef(Fourth),
+    roleGroup: ["super_administrator", "admin", "super_user", "user"],
   },
 ]);
 const showTabBarFn = (item: any) => {
-  componentId.value = item.routerPath;
+  componentId.value = item.componentId;
 };
 </script>
 <style scoped lang="less"></style>

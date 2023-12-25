@@ -10,7 +10,6 @@ export const useLocaleStore = defineStore({
   actions: {
     changLang(lang: any) {
       this.locale = lang === true ? "zh" : "en";
-      console.log(this.locale, "this.locale -store");
 
       localStorage.setItem("treasureLocale", this.locale);
     },
