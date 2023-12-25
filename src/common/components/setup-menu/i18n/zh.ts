@@ -6,5 +6,6 @@ export default {
     picture: "图片",
     music: "音乐",
     video: "视频",
+    upload: "上传",
   },
 };

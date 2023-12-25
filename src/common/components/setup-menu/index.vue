@@ -31,7 +31,7 @@
         :ellipsis="false"
         :router="true"
       >
-        <el-menu-item index="6" class="avatar">
+        <el-menu-item index="6">
           <el-avatar :src="avatarSrc" />
         </el-menu-item>
         <el-menu-item index="7"
@@ -48,7 +48,7 @@
           />
         </el-menu-item>
         <el-menu-item
-          >上传<el-icon><UploadFilled /></el-icon>
+          >{{ $t("setupMenu.upload") }}<el-icon><UploadFilled /></el-icon>
         </el-menu-item>
       </el-menu>
     </div>
@@ -81,8 +81,8 @@ const localeFlag = computed(() => {
 const changeLang = (val: any) => {
   localeStore.changLang(val);
 };
-// 菜单左侧ItemList
-// routerOpenFlag为true时，开启router菜单跳转，index为页面路由
+// 菜单左侧 leftItemList 菜单背景色 bgdColor
+// routerOpenFlag为true时，开启router菜单跳转，index为页面路由,不开启，index仅为标识
 const props = defineProps(["leftItemList", "routerOpenFlag", "bgdColor"]);
 
 // 非路由模式下点击显示tabBar内容
@@ -164,11 +164,6 @@ const avatarSrc = ref(
   .right {
     .el-menu-right {
       background-color: @bgd-menu;
-      .avatar {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
     }
   }
 }
