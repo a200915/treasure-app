@@ -35,7 +35,7 @@
           <el-avatar :src="avatarSrc" />
         </el-menu-item>
         <el-menu-item index="7"
-          >{{ $t("setupMenu.message") }}<el-icon><ChatDotRound /></el-icon>
+          >{{ $t("homePage.message") }}<el-icon><ChatDotRound /></el-icon>
         </el-menu-item>
         <el-menu-item>
           <el-switch
@@ -48,7 +48,7 @@
           />
         </el-menu-item>
         <el-menu-item
-          >{{ $t("setupMenu.upload") }}<el-icon><UploadFilled /></el-icon>
+          >{{ $t("homePage.upload") }}<el-icon><UploadFilled /></el-icon>
         </el-menu-item>
       </el-menu>
     </div>

@@ -22,25 +22,25 @@ const bgdColor = ref("#33e0bd");
 const leftItemList = reactive([
   {
     name: "小说",
-    title: "setupMenu.novel",
+    title: "homePage.novel",
     routerPath: "/novel",
     roleGroup: ["super_administrator", "admin", "super_user", "user"],
   },
   {
     name: "图片",
-    title: "setupMenu.picture",
+    title: "homePage.picture",
     routerPath: "/picture",
     roleGroup: ["super_administrator", "admin", "super_user", "user"],
   },
   {
     name: "音乐",
-    title: "setupMenu.music",
+    title: "homePage.music",
     routerPath: "/music",
     roleGroup: ["super_administrator", "admin", "super_user", "user"],
   },
   {
     name: "视频",
-    title: "setupMenu.video",
+    title: "homePage.video",
     routerPath: "/video",
     roleGroup: ["super_administrator", "admin", "super_user", "user"],
   },
