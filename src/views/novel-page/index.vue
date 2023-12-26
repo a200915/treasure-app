@@ -4,8 +4,7 @@
       <el-header>
         <setup-menu
           :leftItemList="leftItemList"
-          :routerOpenFlag="routerOpenFlag"
-          :bgdColor="bgdColor"
+          :menuOptions="menuOptions"
           @showTabBar="showTabBarFn"
         />
       </el-header>
@@ -16,14 +15,16 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref, reactive, shallowRef } from "vue";
+import { reactive, shallowRef } from "vue";
 import SetupMenu from "@/common/components/setup-menu/index.vue";
 import First from "./first.vue";
 import Third from "./third.vue";
 import Fourth from "./fourth.vue";
 import Second from "./second.vue";
-const routerOpenFlag = ref(false);
-const bgdColor = ref("#2cc4e0");
+const menuOptions = reactive({
+  routerOpenFlag: false,
+  bgdColor: "#2cc4e0",
+});
 const componentId = shallowRef(First);
 // 菜单左侧ItemList
 const leftItemList = reactive([

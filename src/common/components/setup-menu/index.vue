@@ -6,19 +6,34 @@
         class="el-menu-left"
         mode="horizontal"
         :ellipsis="false"
-        :router="routerOpenFlag"
+        :router="menuOptions.routerOpenFlag"
       >
         <el-menu-item index="/home" @click="goHome">
           <div class="logo">Treasure</div>
         </el-menu-item>
-        <template v-for="(item, index) in props.leftItemList" :key="index">
+        <template v-for="(item, index) in leftMenuItem as any" :key="index">
           <el-menu-item
             v-if="item.roleGroup.includes(userRole)"
-            :index="props.routerOpenFlag ? item.routerPath : index + ''"
+            :index="menuOptions.routerOpenFlag ? item.routerPath : index + ''"
             @click="showTabBar(item)"
             >{{ $t(item.title) }}
           </el-menu-item>
         </template>
+        <!-- 模块数量增多时放到二级菜单下 -->
+        <el-sub-menu
+          v-if="menuOptions.routerOpenFlag && moreMenuItem.length > 0"
+          index="/more"
+        >
+          <template #title> 更多 </template>
+          <template v-for="(item, index) in moreMenuItem as any" :key="index">
+            <el-menu-item
+              v-if="item.roleGroup.includes(userRole)"
+              :index="menuOptions.routerOpenFlag ? item.routerPath : index + ''"
+              @click="showTabBar(item)"
+              >{{ $t(item.title) }}
+            </el-menu-item>
+          </template>
+        </el-sub-menu>
       </el-menu>
     </div>
     <!--  无 -->
@@ -65,6 +80,43 @@ const { locale } = storeToRefs(localeStore);
 import { useRouter } from "vue-router";
 const router = useRouter();
 
+// 菜单左侧 leftItemList 菜单背景色 bgdColor
+// routerOpenFlag为true时，开启router菜单跳转，index为页面路由,不开启，index仅为标识
+const emit = defineEmits(["showTabBar"]);
+type menuOptions = {
+  routerOpenFlag?: boolean;
+  bgdColor?: string;
+};
+interface Props {
+  leftItemList?: any;
+  menuOptions?: menuOptions;
+}
+const props = withDefaults(defineProps<Props>(), {
+  menuOptions: () => {
+    return {
+      routerOpenFlag: true,
+      bgdColor: "#33e0bd",
+    };
+  },
+});
+
+// 控制菜单-若首页菜单多则折叠显示
+const LENGTH = ref(3);
+const leftMenuItem = computed(() => {
+  if (props.menuOptions.routerOpenFlag) {
+    return props.leftItemList?.slice(0, LENGTH.value);
+  } else {
+    return props.leftItemList;
+  }
+});
+const moreMenuItem = computed(() => {
+  if (props.menuOptions.routerOpenFlag) {
+    return props.leftItemList?.slice(LENGTH.value);
+  } else {
+    return;
+  }
+});
+
 // 获取角色权限
 const userRole = computed(() => {
   const role: string[] = JSON.parse(sessionStorage?.getItem("role") as string);
@@ -81,14 +133,10 @@ const localeFlag = computed(() => {
 const changeLang = (val: any) => {
   localeStore.changLang(val);
 };
-// 菜单左侧 leftItemList 菜单背景色 bgdColor
-// routerOpenFlag为true时，开启router菜单跳转，index为页面路由,不开启，index仅为标识
-const props = defineProps(["leftItemList", "routerOpenFlag", "bgdColor"]);
 
 // 非路由模式下点击显示tabBar内容
-const emit = defineEmits(["showTabBar"]);
 const showTabBar = (item: any) => {
-  if (props.routerOpenFlag === false) {
+  if (props.menuOptions.routerOpenFlag === false) {
     emit("showTabBar", item);
   }
 };
@@ -103,7 +151,7 @@ const colorChange = (color: string) => {
   const style = document.getElementsByTagName("body")[0].style;
   style.setProperty("--bgd-color", color);
 };
-colorChange(props.bgdColor);
+colorChange(props.menuOptions.bgdColor as string);
 
 // 获取头像路径
 const avatarSrc = ref(

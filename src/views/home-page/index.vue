@@ -2,11 +2,7 @@
   <div class="home-page">
     <el-container>
       <el-header>
-        <setup-menu
-          :leftItemList="leftItemList"
-          :routerOpenFlag="routerOpenFlag"
-          :bgdColor="bgdColor"
-        />
+        <setup-menu :leftItemList="leftItemList" :menuOptions="menuOptions" />
       </el-header>
       <el-main>main </el-main>
     </el-container>
@@ -14,10 +10,11 @@
 </template>
 <script setup lang="ts">
 import SetupMenu from "@/common/components/setup-menu/index.vue";
-import { ref, reactive } from "vue";
-const routerOpenFlag = ref(true);
-const bgdColor = ref("#33e0bd");
-
+import { reactive } from "vue";
+const menuOptions = reactive({
+  routerOpenFlag: true,
+  bgdColor: "#33e0bd",
+});
 // 菜单左侧ItemList
 const leftItemList = reactive([
   {
