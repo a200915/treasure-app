@@ -134,7 +134,7 @@ const changeLang = (val: any) => {
   localeStore.changLang(val);
 };
 
-// 非路由模式下点击显示tabBar内容
+// 非路由模式下点击显示tabBar内容 routerOpenFlag为false表示非路由模式
 const showTabBar = (item: any) => {
   if (props.menuOptions.routerOpenFlag === false) {
     emit("showTabBar", item);
