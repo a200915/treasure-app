@@ -155,7 +155,7 @@ colorChange(props.menuOptions.bgdColor as string);
 
 // 获取头像路径
 const avatarSrc = ref(
-  "https://gitee.com/hglaaa/treasure-imgs/raw/master/login.jpeg"
+  "https://gitee.com/hglaaa/treasure-imgs/raw/master/avatar/panda.jpg"
 );
 </script>
 <style scoped lang="less">

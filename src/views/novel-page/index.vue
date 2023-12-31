@@ -20,7 +20,7 @@ import SetupMenu from "@/common/components/setup-menu/index.vue";
 import RecommendPage from "./RecommendPage.vue";
 import Third from "./third.vue";
 import Fourth from "./fourth.vue";
-import Second from "./second.vue";
+import CategoryPage from "./CategoryPage.vue";
 const menuOptions = reactive({
   routerOpenFlag: false,
   bgdColor: "#2cc4e0",
@@ -37,7 +37,7 @@ const leftItemList = reactive([
   {
     name: "分类",
     title: "novelPage.category",
-    componentId: shallowRef(Second),
+    componentId: shallowRef(CategoryPage),
     roleGroup: ["super_administrator", "admin", "super_user", "user"],
   },
   {

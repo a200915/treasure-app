@@ -25,7 +25,7 @@
 import { ref } from "vue";
 // 获取小说封面路径
 const bookVies = ref(
-  "https://gitee.com/hglaaa/treasure-imgs/raw/master/login.jpeg"
+  "https://gitee.com/hglaaa/treasure-imgs/raw/master/cover/wind.jpg"
 );
 </script>
 <style scoped lang="less">

@@ -86,7 +86,7 @@ import ListName from "./components/ListName.vue";
 import JumpMore from "./components/JumpMore.vue";
 // 获取小说封面路径
 const bookVies = ref(
-  "https://gitee.com/hglaaa/treasure-imgs/raw/master/login.jpeg"
+  "https://gitee.com/hglaaa/treasure-imgs/raw/master/cover/wind.jpg"
 );
 const categoryItemBgc = ref("yellowgreen");
 const downloadRankTitle = ref("下载榜");
@@ -143,7 +143,7 @@ h3 {
     background-color: #f9f9fa;
     padding-left: 3px;
     margin-top: 24px;
-    padding-bottom: 50px;
+    margin-bottom: 50px;
     .title {
       text-align: center;
     }
