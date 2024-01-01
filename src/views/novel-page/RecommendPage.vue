@@ -93,6 +93,9 @@ const downloadRankTitle = ref("下载榜");
 const collectRankTitle = ref("收藏榜");
 const readRankTitle = ref("阅读榜");
 const highScoreRankTitle = ref("高分榜");
+
+// 三个模块的背景色
+const bgdColor = ref("#f9f9fa");
 </script>
 <style scoped lang="less">
 h3 {
@@ -102,16 +105,15 @@ h3 {
   margin-top: 5px;
 }
 .common-layout {
-  padding: 20px;
   .header {
-    background-color: #f9f9fa;
+    background-color: v-bind(bgdColor);
 
     margin-bottom: 24px;
     .title {
       text-align: center;
     }
     .contain {
-      background-color: #f9f9fa;
+      background-color: v-bind(bgdColor);
 
       transform: scale(0.9);
       .novel-name {
@@ -123,13 +125,16 @@ h3 {
     }
   }
   .main {
-    background-color: #f9f9fa;
+    background-color: v-bind(bgdColor);
+    padding: 0 30px 15px;
 
     .title {
       text-align: center;
     }
     .category-item {
       padding: 5px;
+      color: #61666d;
+      background-color: #ecf2f8;
       text-align: center;
       margin-bottom: 5px;
       border-radius: 5px;
@@ -140,10 +145,11 @@ h3 {
     }
   }
   .footer {
-    background-color: #f9f9fa;
+    background-color: v-bind(bgdColor);
     padding-left: 3px;
     margin-top: 24px;
     margin-bottom: 50px;
+    padding-bottom: 10px;
     .title {
       text-align: center;
     }
