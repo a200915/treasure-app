@@ -2,33 +2,30 @@
   <div class="setup-menu">
     <!-- 左侧 -->
     <div class="left">
-      <el-menu
-        class="el-menu-left"
-        mode="horizontal"
-        :ellipsis="false"
-        :router="menuOptions.routerOpenFlag"
-      >
+      <el-menu class="el-menu-left" mode="horizontal" :ellipsis="false">
         <el-menu-item index="/home" @click="goHome">
           <div class="logo">Treasure</div>
         </el-menu-item>
-        <template v-for="(item, index) in leftMenuItem as any" :key="index">
+        <template v-for="(item, index) in leftMenuItem as any">
           <el-menu-item
+            :key="index"
             v-if="item.roleGroup.includes(userRole)"
-            :index="menuOptions.routerOpenFlag ? item.routerPath : index + ''"
+            :index="item.routerPath"
             @click="showTabBar(item)"
             >{{ $t(item.title) }}
           </el-menu-item>
         </template>
         <!-- 模块数量增多时放到二级菜单下 -->
         <el-sub-menu
-          v-if="menuOptions.routerOpenFlag && moreMenuItem.length > 0"
+          v-if="menuOptions.showMoreFlag && moreMenuItem.length > 0"
           index="/more"
         >
           <template #title> 更多 </template>
-          <template v-for="(item, index) in moreMenuItem as any" :key="index">
+          <template v-for="(item, index) in moreMenuItem as any">
             <el-menu-item
+              :key="index"
               v-if="item.roleGroup.includes(userRole)"
-              :index="menuOptions.routerOpenFlag ? item.routerPath : index + ''"
+              :index="item.routerPath"
               @click="showTabBar(item)"
               >{{ $t(item.title) }}
             </el-menu-item>
@@ -81,36 +78,36 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 
 // 菜单左侧 leftItemList 菜单背景色 bgdColor
-// routerOpenFlag为true时，开启router菜单跳转，index为页面路由,不开启，index仅为标识
+// showMoreFlag为 超出一定数量的菜单后，将超出菜单放入 更多 选项菜单中
 const emit = defineEmits(["showTabBar"]);
 type menuOptions = {
-  routerOpenFlag?: boolean;
+  showMoreFlag: boolean;
   bgdColor?: string;
 };
 interface Props {
-  leftItemList?: any;
+  leftItemList: any;
   menuOptions?: menuOptions;
 }
 const props = withDefaults(defineProps<Props>(), {
   menuOptions: () => {
     return {
-      routerOpenFlag: true,
+      showMoreFlag: true,
       bgdColor: "#33e0bd",
     };
   },
 });
 
 // 控制菜单-若首页菜单多则折叠显示
-const LENGTH = ref(3);
+const LENGTH = ref(4);
 const leftMenuItem = computed(() => {
-  if (props.menuOptions.routerOpenFlag) {
+  if (props.menuOptions.showMoreFlag) {
     return props.leftItemList?.slice(0, LENGTH.value);
   } else {
     return props.leftItemList;
   }
 });
 const moreMenuItem = computed(() => {
-  if (props.menuOptions.routerOpenFlag) {
+  if (props.menuOptions.showMoreFlag) {
     return props.leftItemList?.slice(LENGTH.value);
   } else {
     return;
@@ -134,11 +131,9 @@ const changeLang = (val: any) => {
   localeStore.changLang(val);
 };
 
-// 非路由模式下点击显示tabBar内容 routerOpenFlag为false表示非路由模式
+// 点击显示tabBar内容，通过路由跳转方式
 const showTabBar = (item: any) => {
-  if (props.menuOptions.routerOpenFlag === false) {
-    emit("showTabBar", item);
-  }
+  emit("showTabBar", item);
 };
 
 // 点击跳转网站首页

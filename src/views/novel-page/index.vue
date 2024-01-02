@@ -9,52 +9,52 @@
         />
       </el-header>
       <el-main>
-        <component :is="componentId" />
+        <router-view />
       </el-main>
     </el-container>
   </div>
 </template>
 <script setup lang="ts">
-import { reactive, shallowRef } from "vue";
+import { reactive } from "vue";
+import { useRouter } from "vue-router";
 import SetupMenu from "@/common/components/setup-menu/index.vue";
-import RecommendPage from "./RecommendPage.vue";
-import Third from "./third.vue";
-import Fourth from "./fourth.vue";
-import CategoryPage from "./CategoryPage.vue";
+const router = useRouter();
 const menuOptions = reactive({
-  routerOpenFlag: false,
+  showMoreFlag: false,
   bgdColor: "#2cc4e0",
 });
-const componentId = shallowRef(RecommendPage);
 // 菜单左侧ItemList
 const leftItemList = reactive([
   {
     name: "推荐",
     title: "novelPage.recommend",
-    componentId: shallowRef(RecommendPage),
+    routerPath: "recommend",
     roleGroup: ["super_administrator", "admin", "super_user", "user"],
   },
   {
     name: "分类",
     title: "novelPage.category",
-    componentId: shallowRef(CategoryPage),
+    routerPath: "category",
     roleGroup: ["super_administrator", "admin", "super_user", "user"],
   },
   {
     name: "书架",
     title: "novelPage.bookshelf",
-    componentId: shallowRef(Third),
+    routerPath: "bookshelf",
     roleGroup: ["super_administrator", "admin", "super_user", "user"],
   },
   {
     name: "收藏",
     title: "novelPage.collect",
-    componentId: shallowRef(Fourth),
+    routerPath: "collect",
     roleGroup: ["super_administrator", "admin", "super_user", "user"],
   },
 ]);
 const showTabBarFn = (item: any) => {
-  componentId.value = item.componentId;
+  router.push({
+    path: item.routerPath,
+  });
+  console.log(item);
 };
 </script>
 <style scoped lang="less">
