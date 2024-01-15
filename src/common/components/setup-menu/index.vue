@@ -2,7 +2,12 @@
   <div class="setup-menu">
     <!-- 左侧 -->
     <div class="left">
-      <el-menu class="el-menu-left" mode="horizontal" :ellipsis="false">
+      <el-menu
+        class="el-menu-left"
+        mode="horizontal"
+        :ellipsis="false"
+        :default-active="active"
+      >
         <el-menu-item index="/home" @click="goHome">
           <div class="logo">Treasure</div>
         </el-menu-item>
@@ -47,7 +52,7 @@
           <el-avatar :src="avatarSrc" />
         </el-menu-item>
         <el-menu-item index="7"
-          >{{ $t("homePage.message") }}<el-icon><ChatDotRound /></el-icon>
+          >{{ $t('homePage.message') }}<el-icon><ChatDotRound /></el-icon>
         </el-menu-item>
         <el-menu-item>
           <el-switch
@@ -60,26 +65,30 @@
           />
         </el-menu-item>
         <el-menu-item
-          >{{ $t("homePage.upload") }}<el-icon><UploadFilled /></el-icon>
+          >{{ $t('homePage.upload') }}<el-icon><UploadFilled /></el-icon>
         </el-menu-item>
       </el-menu>
     </div>
   </div>
 </template>
 <script setup lang="ts">
-import { computed, ref, defineProps, defineEmits } from "vue";
-import { ChatDotRound, UploadFilled } from "@element-plus/icons-vue";
-import { storeToRefs } from "pinia";
-import { useLocaleStore } from "@/store/modules/locales";
+import { computed, ref, defineProps, defineEmits } from 'vue';
+import { ChatDotRound, UploadFilled } from '@element-plus/icons-vue';
+import { storeToRefs } from 'pinia';
+import { useLocaleStore } from '@/store/modules/locales';
+import { useSetupItemStore } from '@/store/modules/setupItem';
 const localeStore = useLocaleStore();
+const setupItemStore = useSetupItemStore();
 const { locale } = storeToRefs(localeStore);
+// 菜单高亮active
+const { active } = storeToRefs(setupItemStore);
 
-import { useRouter } from "vue-router";
+import { useRouter } from 'vue-router';
 const router = useRouter();
 
 // 菜单左侧 leftItemList 菜单背景色 bgdColor
 // showMoreFlag为 超出一定数量的菜单后，将超出菜单放入 更多 选项菜单中
-const emit = defineEmits(["showTabBar"]);
+const emit = defineEmits(['showTabBar']);
 type menuOptions = {
   showMoreFlag: boolean;
   bgdColor?: string;
@@ -92,7 +101,7 @@ const props = withDefaults(defineProps<Props>(), {
   menuOptions: () => {
     return {
       showMoreFlag: true,
-      bgdColor: "#33e0bd",
+      bgdColor: '#33e0bd',
     };
   },
 });
@@ -116,16 +125,16 @@ const moreMenuItem = computed(() => {
 
 // 获取角色权限
 const userRole = computed(() => {
-  const role: string[] = JSON.parse(sessionStorage?.getItem("role") as string);
+  const role: string[] = JSON.parse(sessionStorage?.getItem('role') as string);
   return role[0];
 });
 
 // 国际化切换
 const localeStyle = ref(
-  "--el-switch-on-color: #13ce66;--el-switch-off-color: #89b9f9;"
+  '--el-switch-on-color: #13ce66;--el-switch-off-color: #89b9f9;'
 );
 const localeFlag = computed(() => {
-  return locale.value === "zh" ? true : false;
+  return locale.value === 'zh' ? true : false;
 });
 const changeLang = (val: any) => {
   localeStore.changLang(val);
@@ -133,24 +142,30 @@ const changeLang = (val: any) => {
 
 // 点击显示tabBar内容，通过路由跳转方式
 const showTabBar = (item: any) => {
-  emit("showTabBar", item);
+  if (item.routerPath === '/novel') {
+    active.value = 'recommend';
+  } else {
+    active.value = item.routerPath;
+  }
+  emit('showTabBar', item);
 };
 
 // 点击跳转网站首页
 const goHome = () => {
-  router.push({ path: "/home" });
+  router.push({ path: '/home' });
+  active.value = '/home';
 };
 
 // 修改css背景值变量
 const colorChange = (color: string) => {
-  const style = document.getElementsByTagName("body")[0].style;
-  style.setProperty("--bgd-color", color);
+  const style = document.getElementsByTagName('body')[0].style;
+  style.setProperty('--bgd-color', color);
 };
 colorChange(props.menuOptions.bgdColor as string);
 
 // 获取头像路径
 const avatarSrc = ref(
-  "https://gitee.com/hglaaa/treasure-imgs/raw/master/avatar/panda.jpg"
+  'https://gitee.com/hglaaa/treasure-imgs/raw/master/avatar/panda.jpg'
 );
 </script>
 <style scoped lang="less">

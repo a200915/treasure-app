@@ -1,31 +1,31 @@
-import type { RouteRecordRaw } from "vue-router";
-const demos: RouteRecordRaw[] = [
+import type { RouteRecordRaw } from 'vue-router';
+const novel: RouteRecordRaw[] = [
   {
-    path: "/novel",
-    name: "novel",
-    component: () => import("@/views/novel-page/index.vue"),
+    path: '/novel',
+    name: 'novel',
+    component: () => import('@/views/novel-page/index.vue'),
     children: [
       {
-        path: "recommend",
-        name: "recommend",
-        component: () => import("@/views/novel-page/RecommendPage.vue"),
+        path: 'recommend',
+        name: 'recommend',
+        component: () => import('@/views/novel-page/RecommendPage.vue'),
       },
       {
-        path: "category",
-        name: "category",
-        component: () => import("@/views/novel-page//CategoryPage.vue"),
+        path: 'category',
+        name: 'category',
+        component: () => import('@/views/novel-page//CategoryPage.vue'),
       },
       {
-        path: "bookshelf",
-        name: "bookshelf",
-        component: () => import("@/views/novel-page/third.vue"),
+        path: 'bookshelf',
+        name: 'bookshelf',
+        component: () => import('@/views/novel-page/BookselfPage.vue'),
       },
       {
-        path: "collect",
-        name: "collect",
-        component: () => import("@/views/novel-page/fourth.vue"),
+        path: 'collect',
+        name: 'collect',
+        component: () => import('@/views/novel-page/CollectPage.vue'),
       },
     ],
   },
 ];
-export default demos;
+export default novel;
