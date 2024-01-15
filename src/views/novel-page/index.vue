@@ -15,18 +15,22 @@
   </div>
 </template>
 <script setup lang="ts">
-import { reactive } from "vue";
-import { useRouter } from "vue-router";
-import { storeToRefs } from "pinia";
-import SetupMenu from "@/common/components/setup-menu/index.vue";
-import { useNovelStore } from "@/store/modules/novel";
+import { reactive } from 'vue';
+import { useRouter } from 'vue-router';
+import { storeToRefs } from 'pinia';
+import SetupMenu from '@/common/components/setup-menu/index.vue';
+import { useNovelStore } from '@/store/modules/novel';
+import { useUserStore } from '@/store/modules/user';
+const userStore = useUserStore();
+const { role } = storeToRefs(userStore);
+console.log(role.value, 'role');
 
 const novelStore = useNovelStore();
 const { leftItemList } = storeToRefs(novelStore);
 const router = useRouter();
 const menuOptions = reactive({
   showMoreFlag: false,
-  bgdColor: "#2cc4e0",
+  bgdColor: '#2cc4e0',
 });
 // 菜单左侧ItemList
 
